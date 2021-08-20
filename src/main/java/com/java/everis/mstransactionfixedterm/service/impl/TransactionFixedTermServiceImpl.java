@@ -20,7 +20,7 @@ public class TransactionFixedTermServiceImpl implements TransactionFixedTermServ
 	private final WebClient webClient;
 	private final ReactiveCircuitBreaker reactiveCircuitBreaker;
 	
-	String uri = "http://localhost:8090/api/ms-fixed-term/fixedTerm";
+	String uri = "http://gateway:8090/api/ms-fixed-term/fixedTerm";
 	
 	public TransactionFixedTermServiceImpl(ReactiveResilience4JCircuitBreakerFactory circuitBreakerFactory) {
 		this.webClient = WebClient.builder().baseUrl(this.uri).build();
