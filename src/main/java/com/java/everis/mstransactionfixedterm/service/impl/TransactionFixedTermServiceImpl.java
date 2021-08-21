@@ -42,7 +42,7 @@ public class TransactionFixedTermServiceImpl implements TransactionFixedTermServ
    	// Plan A - Update
 	@Override
     public Mono<FixedTerm> updateFixedTerm(FixedTerm ft) {
-		return reactiveCircuitBreaker.run(webClient.put().uri(this.uri + "/update",ft).accept(MediaType.APPLICATION_JSON).syncBody(ft).retrieve().bodyToMono(FixedTerm.class),
+		return reactiveCircuitBreaker.run(webClient.put().uri(this.uri + "/update",ft.getId()).accept(MediaType.APPLICATION_JSON).syncBody(ft).retrieve().bodyToMono(FixedTerm.class),
 				throwable -> {
 					return this.getDefaultFixedTerm();
 				});
